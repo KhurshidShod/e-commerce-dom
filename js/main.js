@@ -2267,7 +2267,7 @@ document.querySelector(".searchInp").addEventListener("input", () => {
             <a href="">
                 <div class="searchResCard">
                     <div class="searchResCard__img"><img src="${res.images[0]}" alt=""></div>
-                    <div class="searchResCard__title">${res.thumbnail}</div>
+                    <div class="searchResCard__title">${res.title}</div>
                     <div class="searchResCard__price">Price: $${res.price}</div>
                 </div>
             </a>
@@ -2305,7 +2305,7 @@ document.querySelector(".navInphidden").addEventListener("input", () => {
     <a href="">
     <div class="searchResCard">
         <div class="searchResCard__img"><img src="${res.images[0]}" alt=""></div>
-        <div class="searchResCard__title">${res.thumbnail}</div>
+        <div class="searchResCard__title">${res.title}</div>
         <div class="searchResCard__price">Price: $${res.price}</div>
     </div>
     </a>
