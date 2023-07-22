@@ -253,42 +253,67 @@ header .nav__menu button span {
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
 }
-header .nav__menu button.cat-btn {
-  width: 140px;
+header .nav__menu .cat-btn {
+  width: auto;
   height: 40px;
-  background-color: #70C05B;
+  background-color: #70c05b;
   color: white;
   font-size: 16px;
-  padding: 8px;
+  padding: 0 0 0 0;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   font-weight: 300;
 }
-header .nav__menu button.cat-btn:hover {
+header .nav__menu .cat-btn-img {
+  width: 40px;
+  height: 100%;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+header .nav__menu .cat-btn-img img {
+  width: 75%;
+  height: 75%;
+}
+header .nav__menu .cat-btn-img:hover {
+  background-color: #4eb335;
+}
+header .nav__menu .cat-btn:hover {
+  color: white;
+}
+header .nav__menu .cat-btn p {
+  height: 100%;
+  flex-grow: 1;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+header .nav__menu .cat-btn p:hover {
   background-color: #4eb335;
 }
 @media (max-width: 1100px) {
-  header .nav__menu button.cat-btn {
+  header .nav__menu .cat-btn {
     width: 40px;
   }
-  header .nav__menu button.cat-btn p {
+  header .nav__menu .cat-btn p {
     display: none;
   }
 }
 @media (max-width: 700px) {
-  header .nav__menu button.cat-btn {
+  header .nav__menu .cat-btn {
     background-color: transparent;
     font-size: 12px;
     color: var(--fontColor-black);
@@ -298,12 +323,117 @@ header .nav__menu button.cat-btn:hover {
     align-items: center;
     flex-direction: column;
   }
-  header .nav__menu button.cat-btn svg path {
+  header .nav__menu .cat-btn svg path {
     fill: var(--fontColor-black);
   }
-  header .nav__menu button.cat-btn p {
+  header .nav__menu .cat-btn p {
     display: block;
   }
+}
+
+.nav__menu-catalog {
+  position: fixed;
+  font-family: "Rubik";
+  top: 80px;
+  z-index: 9999;
+  width: 100%;
+  background-color: white;
+  transition: padding 0.1s linear;
+  transition: height 0.1s linear;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+  padding: 40px 116px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+  -webkit-transition: padding 0.1s linear;
+  -moz-transition: padding 0.1s linear;
+  -ms-transition: padding 0.1s linear;
+  -o-transition: padding 0.1s linear;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.nav__menu-catalog.open {
+  height: auto;
+  padding: 40px 116px;
+}
+.nav__menu-catalog ul {
+  width: 25%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  gap: 24px;
+}
+.nav__menu-catalog ul li {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav__menu-catalog ul li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-green);
+  border-radius: 25px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
+.nav__menu-catalog ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-green);
+  border-radius: 25px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
+.nav__menu-catalog ul li:hover::before {
+  width: 100%;
+  transition: width 0.3s linear;
+  -webkit-transition: width 0.3s linear;
+  -moz-transition: width 0.3s linear;
+  -ms-transition: width 0.3s linear;
+  -o-transition: width 0.3s linear;
+}
+.nav__menu-catalog ul li:hover::after {
+  width: 100%;
+  transition: width 0.3s linear;
+  -webkit-transition: width 0.2s linear;
+  -moz-transition: width 0.2s linear;
+  -ms-transition: width 0.2s linear;
+  -o-transition: width 0.2s linear;
+}
+.nav__menu-catalog ul li:not(:hover)::before {
+  transition: width 0.3s linear;
+  -webkit-transition: width 0.3s linear;
+  -moz-transition: width 0.3s linear;
+  -ms-transition: width 0.3s linear;
+  -o-transition: width 0.3s linear;
+}
+.nav__menu-catalog ul li:not(:hover)::after {
+  transition: width 0.3s linear;
+  -webkit-transition: width 0.3s linear;
+  -moz-transition: width 0.3s linear;
+  -ms-transition: width 0.3s linear;
+  -o-transition: width 0.3s linear;
+}
+.nav__menu-catalog ul li a {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fontColor-black);
 }
 
 footer {
@@ -311,7 +441,7 @@ footer {
   font-family: "Rubik";
   padding: 1rem 0;
   background-color: #F9F4E2;
-  background-image: url(../../images/footerbg.png);
+  background-image: url(../../assets/images/footerbg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -847,8 +977,8 @@ main .aksiya .wrapper .cards .card__image {
 }
 main .aksiya .wrapper .cards .card__image-like {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 4px;
   top: 0px;
   opacity: 0;
@@ -866,31 +996,6 @@ main .aksiya .wrapper .cards .card__image-like svg path {
 }
 main .aksiya .wrapper .cards .card__image-like:hover svg path {
   stroke: red;
-}
-main .aksiya .wrapper .cards .card__image .owl-carousel {
-  width: 100%;
-  position: relative;
-}
-main .aksiya .wrapper .cards .card__image .owl-carousel .item {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-main .aksiya .wrapper .cards .card__image .owl-carousel button.owl-prev,
-main .aksiya .wrapper .cards .card__image .owl-carousel button.owl-next {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-main .aksiya .wrapper .cards .card__image .owl-carousel button.owl-prev {
-  left: -20px;
-  top: 50%;
-}
-main .aksiya .wrapper .cards .card__image .owl-carousel button.owl-next {
-  right: -20px;
-  top: 50%;
 }
 main .aksiya .wrapper .cards .card__image img {
   width: 100%;
@@ -971,6 +1076,10 @@ main .aksiya .wrapper .cards .card button {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border: 1px solid #70C05B;
+}
+main .aksiya .wrapper .cards .card button .animationNumber {
+  background-color: red;
+  position: absolute;
 }
 main .aksiya .wrapper .cards .card button:hover {
   background-color: var(--color-orange);

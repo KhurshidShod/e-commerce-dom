@@ -241,8 +241,8 @@ main{
                     position: relative;
                     &-like{
                         position: absolute;
-                        width: 25px;
-                        height: 25px;
+                        width: 35px;
+                        height: 35px;
                         border-radius: 4px;
                         top: 0px;
                         opacity: 0;
@@ -265,28 +265,6 @@ main{
                         -moz-border-radius: 4px;
                         -ms-border-radius: 4px;
                         -o-border-radius: 4px;
-                    }
-                    .owl-carousel{
-                        width: 100%;
-                        position: relative;
-                        .item{
-                            width: 100%;
-                            @include df;
-                        }
-                        button.owl-prev,
-                        button.owl-next{
-                            position: absolute;
-                            width: 40px;
-                            height: 40px;
-                        }
-                        button.owl-prev{
-                            left: -20px;
-                            top: 50%;
-                        }
-                        button.owl-next{
-                            right: -20px;
-                            top: 50%;
-                        }
                     }
                         img{
                             width: 100%;
@@ -358,6 +336,10 @@ main{
                     }
                     button{
                         @include button(100%, 40px, transparent, #70C05B, true, 16px, 8px);
+                        .animationNumber{
+    background-color: red;
+    position: absolute;
+}
                         &:hover{
                             background-color: var(--color-orange);
                             color: white;

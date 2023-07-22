@@ -4,39 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.min.css" />
-    <link rel="stylesheet" href="css/likeIcon.css">
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Северяночка</title>
+    <link rel="stylesheet" href="css/allProducts.min.css" />
+    <title>Products</title>
   </head>
   <body>
     <div class="loader">
@@ -124,7 +93,7 @@
         <h1>Вход</h1>
         <label for="logName">Телефон</label>
         <input type="text" name="" id="logName" placeholder="name" />
-        <input type="file" name="" id="logImage">
+        <input type="file" name="" id="logImage" />
         <button class="loginBtn">Вход</button>
       </div>
     </div>
@@ -276,190 +245,44 @@
     </div>
     <div class="searchResult"></div>
     <main>
-      <section class="banner">
-        <div class="container">
-          <div class="wrapper">
-            <img src="assets/images/banner.png" alt="" />
-            <h1>Доставка бесплатно от 1000 ₽</h1>
-          </div>
-        </div>
-      </section>
-      <section class="aksiya">
-        <div class="container">
-          <div class="wrapper">
-            <div class="aksiya__top">
-              <h1>Акции</h1>
-              <div>
-                <button class="priceAksiya">
-                  <i class="fa-regular fa-arrow-down-9-1"></i>
-                </button>
-                <button class="ratingAksiya">
-                  <i class="fa-regular fa-arrow-down-wide-short"></i>
-                </button>
-                <a href="">Все продукты ></a>
-              </div>
-            </div>
-            <div class="cards aksiyaCards"></div>
-          </div>
-        </div>
-      </section>
-      <section class="yangilik">
-        <div class="container">
-          <div class="wrapper">
-            <div class="yangilik__top">
-              <h1>Новинки</h1>
-              <div>
-                <button class="priceYangilik">
-                  <i class="fa-regular fa-arrow-down-9-1"></i>
-                </button>
-                <button class="ratingYangilik">
-                  <i class="fa-regular fa-arrow-down-wide-short"></i>
-                </button>
-                <a href="">Все продукты ></a>
-              </div>
-            </div>
-            <div class="cards yangilikCards">
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="mashhur">
-        <div class="container">
-          <div class="wrapper">
-            <div class="mashhur__top">
-              <h1>Покупали раньше</h1>
-              <div>
-                <button class="priceMashhur">
-                  <i class="fa-regular fa-arrow-down-9-1"></i>
-                </button>
-                <button class="ratingMashhur">
-                  <i class="fa-regular fa-arrow-down-wide-short"></i>
-                </button>
-                <a href="">Все продукты ></a>
-              </div>
-            </div>
-            <div class="cards mashhurCards"></div>
-          </div>
-        </div>
-      </section>
-      <section class="taklif">
-        <div class="container">
-          <div class="wrapper">
-            <h1>Специальные предложения</h1>
-            <div class="cards">
-              <div class="card">
-                <div class="card__text">
-                  <h1>Оформите карту «Северяночка»</h1>
-                  <p>И получайте бонусы при покупке в магазинах и на сайте</p>
+        <section class="allProducts">
+            <div class="container">
+                <div class="allProducts__wrapper">
+                    <h1>Все продукты</h1>
+                    <div class="allProducts__wrapper-cards">
+                        <div class="card">
+                            <div class="card__image">
+                            <div class="card__image-like">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2046 4.25644C14.3299 3.13067 15.8564 2.49817 17.4482 2.49817C19.0399 2.49817 20.5664 3.13063 21.6916 4.25636C22.8174 5.38164 23.45 6.90829 23.45 8.49999C23.45 10.0917 22.8175 11.6183 21.6917 12.7435C21.6917 12.7436 21.6917 12.7435 21.6917 12.7435L12.8517 21.5835C12.6565 21.7788 12.3399 21.7788 12.1446 21.5835L3.30461 12.7435C0.960963 10.3999 0.960963 6.60009 3.30461 4.25644C5.64826 1.91279 9.44807 1.91279 11.7917 4.25644L12.4982 4.96289L13.2046 4.25644C13.2046 4.25641 13.2046 4.25647 13.2046 4.25644ZM17.4482 3.49817C16.1217 3.49817 14.8496 4.02528 13.9118 4.96346L12.8517 6.02355C12.758 6.11732 12.6308 6.16999 12.4982 6.16999C12.3656 6.16999 12.2384 6.11732 12.1446 6.02355L11.0846 4.96355C9.13149 3.01042 5.96484 3.01042 4.01172 4.96355C2.05859 6.91667 2.05859 10.0833 4.01172 12.0364L12.4982 20.5229L20.9846 12.0364C21.9228 11.0987 22.45 9.82648 22.45 8.49999C22.45 7.17351 21.9229 5.90138 20.9847 4.96363C20.0469 4.02544 18.7747 3.49817 17.4482 3.49817Z" fill="#414141"/>
+                            </svg>
+                            </div>
+                                <img src='${prod.images[0]}' alt="">
+                            </div>
+                            <div class="card__price">
+                            <div class="card__price-left">
+                                <h3>${prod.price} ₽</h3>
+                            </div>
+                        </div>
+                        <div class="card__about"><h3>${prod.title}</h3>
+                        <p>${prod.thumbnail}</p>
+                        </div>
+                        <div class="card__about-stars">
+                        ${Array(Math.round(prod.rating))
+                          .fill(0)
+                          .map((star) => {
+                            return '<img src="assets/images/Star 1.png" alt="Rasm yuklashda xatolik">';
+                          }).join("")}${Array(5 - Math.round(prod.rating))
+                                .fill(0)
+                                .map((star) => {
+                                  return '<img src="assets/images/Star 2.png" alt="Rasm yuklashda xatolik">';
+                                })} ${Math.round(prod.rating)}.0
+                        </div>
                 </div>
-                <div class="card__image">
-                  <img src="assets/images/Карта лояльности-10 1.png" alt="" />
-                </div>
-              </div>
-              <div class="card">
-                <div class="card__text">
-                  <h1>Покупайте акционные товары</h1>
-                  <p>И получайте вдвое больше бонусов</p>
-                </div>
-                <div class="card__image">
-                  <img src="assets/images/73 1.png" alt="" />
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="magazinlar">
-        <div class="container">
-          <div class="wrapper">
-            <h1>Наши магазины</h1>
-            <div class="magazinlar__apTab">
-              <button>п.Щельяюр</button>
-              <button>д.Вертеп</button>
-              <button>с.Краснобор</button>
-              <button>д.Диюр</button>
-            </div>
-            <div class="map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64787.94920624369!2d69.22061571029353!3d41.267932968278465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8bf3870c714d%3A0x6ddece20c220333b!2sMagic%20City%20Park!5e0!3m2!1sen!2s!4v1687224289806!5m2!1sen!2s"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
-    <footer>
-      <div class="container">
-        <div class="wrapper">
-          <div class="footer__content">
-            <div class="footer__logo">
-              <img src="assets/images/logo (1).svg" alt="" />
-            </div>
-            <div class="footer__menu">
-              <ul>
-                <li>О компании</li>
-                <li>Контакты</li>
-                <li>Вакансии</li>
-                <li>Статьи</li>
-                <li>Политика обработки персональных данных</li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer__icons">
-            <img src="assets/images/icons/Union.svg" alt="" />
-            <img src="assets/images/icons/vkontakte.svg" alt="" />
-            <img src="assets/images/icons/facebook.svg" alt="" />
-            <img src="assets/images/icons/ok.svg" alt="" />
-          </div>
-          <div class="footer__contact">
-            <div>
-              <img src="assets/images/phone.svg" alt="" />
-              <p>8 800 777 33 33</p>
-            </div>
-            <div>Coder <a href="">Xurshid</a></div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="js/common.js"></script>
     <script src="js/products.js"></script>
-    <script src="js/main.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script>
-      $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots: false,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 1,
-          },
-          1000: {
-            items: 1,
-          },
-        },
-      });
-    </script>
+    <script src="js/common.js"></script>
   </body>
 </html>

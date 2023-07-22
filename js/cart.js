@@ -4,21 +4,26 @@ const localData = JSON.parse(localStorage.getItem("cartItems"));
 let htmlCartContent = ``;
 let cartInfoContent = ``;
 
-document.querySelector(
-  ".nav__menu-user"
-).innerHTML = `<img src='${localStorage.getItem("image")}'} alt=""> <p>${localStorage.getItem(
-  "name"
-)}</p>`;
+if (localStorage.getItem("name")) {
+  document.querySelector(
+    ".nav__menu-user"
+  ).innerHTML = `<img src='${localStorage.getItem(
+    "image"
+  )}'} alt=""> <p>${localStorage.getItem("name")}</p>`;
+} else {
+  document.querySelector(
+    ".nav__menu-user"
+  ).innerHTML = `<button onclick="document.querySelector('.joinModal').style.display = 'flex'" class="logRegButton">Log in</button>`;
+}
 
 function getDatasfromLocal() {
-  data.map((el) => {
-    for (i = 0; i < localData.length; i++) {
-      console.log(localData[i].prod);
-      if (el.id == localData[i].prod) {
-        cartItemsContent.push(el);
+  localData && data.map((el) => {
+      for (i = 0; i < localData.length; i++) {
+        if (el.id == localData[i].prod) {
+          cartItemsContent.push(el);
+        }
       }
-    }
-  });
+    });
   for (el of cartItemsContent) {
     for (i = 0; i < localData.length; i++) {
       if (el.id == localData[i].prod) {
@@ -30,10 +35,10 @@ function getDatasfromLocal() {
 getDatasfromLocal();
 const displayDatas = () => {
   let skidka = 0;
-  cartItemsContent.length != 0 ?
-  cartItemsContent.map((item) => {
-    skidka += ((item.price * 2) / 100) * item.qty;
-    htmlCartContent += `
+  cartItemsContent.length != 0
+    ? cartItemsContent.map((item) => {
+        skidka += ((item.price * 2) / 100) * item.qty;
+        htmlCartContent += `
         <div class="card">
         <div class="card__left">
           <div class="card__left-img">
@@ -68,7 +73,8 @@ const displayDatas = () => {
         </div>
       </div>
         `;
-  }) : htmlCartContent += `<h1 style="text-align: center; background-color: transparent;">Savat bo'sh</h1>`;
+      })
+    : (htmlCartContent += `<h1 style="text-align: center; background-color: transparent;">Savat bo'sh</h1>`);
   cartInfoContent += `
   <div class="cart__wrapper-infos-top">
   <p>На карте накоплено 200 ₽ </p>
@@ -91,9 +97,16 @@ const displayDatas = () => {
   `;
   document.querySelector(".cards").innerHTML = htmlCartContent;
   document.querySelector(".cart__wrapper-infos").innerHTML = cartInfoContent;
-  document.querySelector(".cartCount").innerHTML = JSON.parse(
-    localStorage.getItem("cartItems")
-  ).length;
+  if (!localStorage.getItem("cartItems") == null) {
+    document
+      .querySelectorAll(".cartCount")
+      .forEach(
+        (count) =>
+          (count.innerHTML = JSON.parse(
+            localStorage.getItem("cartItems")
+          ).length)
+      );
+  }
 };
 displayDatas();
 const plusMinusItem = (id, type) => {
@@ -125,36 +138,39 @@ const plusMinusItem = (id, type) => {
   localStorage.setItem("cartItems", JSON.stringify(localDataForChange));
   htmlCartContent = ``;
   cartInfoContent = ``;
+  document
+    .querySelectorAll(".cartCount")
+    .forEach((count) => (count.innerHTML = cartItemsContent.length));
   displayDatas();
-  aksiyaOut = ``
-  setAksiyaData()
 };
 window.addEventListener("load", () => {
   document.querySelector(".loader").style.display = "none";
-  document.querySelector(".cartCount").innerHTML = cartItemsContent.length;
+  document
+    .querySelectorAll(".cartCount")
+    .forEach((count) => (count.innerHTML = cartItemsContent.length));
 });
 
 if (document.querySelector(".searchInp").value === "") {
+  document.querySelector(".searchResult").style.display = "none";
+} else {
+  document.querySelector(".searchResult").style.display = "flex";
+}
+document.querySelector(".searchInp").addEventListener("input", () => {
+  let searchRes = ``;
+  if (document.querySelector(".searchInp").value === "") {
     document.querySelector(".searchResult").style.display = "none";
   } else {
     document.querySelector(".searchResult").style.display = "flex";
   }
-  document.querySelector(".searchInp").addEventListener("input", () => {
-    let searchRes = ``;
-    if (document.querySelector(".searchInp").value === "") {
-      document.querySelector(".searchResult").style.display = "none";
-    } else {
-      document.querySelector(".searchResult").style.display = "flex";
-    }
-    data
-      .filter((el) =>
-        el.title
-          .toLowerCase()
-          .includes(document.querySelector(".searchInp").value.toLowerCase())
-      )
-      .map(
-        (res) =>
-          (searchRes += `
+  data
+    .filter((el) =>
+      el.title
+        .toLowerCase()
+        .includes(document.querySelector(".searchInp").value.toLowerCase())
+    )
+    .map(
+      (res) =>
+        (searchRes += `
               <a href="">
                   <div class="searchResCard">
                       <div class="searchResCard__img"><img src="${res.images[0]}" alt=""></div>
@@ -163,36 +179,35 @@ if (document.querySelector(".searchInp").value === "") {
                   </div>
               </a>
       `)
-      );
-    if (
-      data.filter((el) =>
-        el.title
-          .toLowerCase()
-          .includes(document.querySelector(".searchInp").value.toLowerCase())
-      ).length == 0
-    ) {
-      document.querySelector(".searchResult").textContent = "Net takoy tovar";
-    } else {
-      document.querySelector(".searchResult").innerHTML = searchRes;
-    }
-  });
-  document.querySelector(".navInphidden").addEventListener("input", () => {
-    console.log(document.querySelector(".navInphidden").value);
-    let searchRes = ``;
-    if (document.querySelector(".navInphidden").value === "") {
-      document.querySelector(".searchResult").style.display = "none";
-    } else {
-      document.querySelector(".searchResult").style.display = "flex";
-    }
-    data
-      .filter((el) =>
-        el.title
-          .toLowerCase()
-          .includes(document.querySelector(".navInphidden").value.toLowerCase())
-      )
-      .map(
-        (res) =>
-          (searchRes += `
+    );
+  if (
+    data.filter((el) =>
+      el.title
+        .toLowerCase()
+        .includes(document.querySelector(".searchInp").value.toLowerCase())
+    ).length == 0
+  ) {
+    document.querySelector(".searchResult").textContent = "Net takoy tovar";
+  } else {
+    document.querySelector(".searchResult").innerHTML = searchRes;
+  }
+});
+document.querySelector(".navInphidden").addEventListener("input", () => {
+  let searchRes = ``;
+  if (document.querySelector(".navInphidden").value === "") {
+    document.querySelector(".searchResult").style.display = "none";
+  } else {
+    document.querySelector(".searchResult").style.display = "flex";
+  }
+  data
+    .filter((el) =>
+      el.title
+        .toLowerCase()
+        .includes(document.querySelector(".navInphidden").value.toLowerCase())
+    )
+    .map(
+      (res) =>
+        (searchRes += `
       <a href="">
       <div class="searchResCard">
           <div class="searchResCard__img"><img src="${res.images[0]}" alt=""></div>
@@ -201,16 +216,19 @@ if (document.querySelector(".searchInp").value === "") {
       </div>
       </a>
       `)
-      );
-    if (
-      data.filter((el) =>
-        el.title
-          .toLowerCase()
-          .includes(document.querySelector(".navInphidden").value.toLowerCase())
-      ).length == 0
-    ) {
-      document.querySelector(".searchResult").textContent = "Net takoy tovar";
-    } else {
-      document.querySelector(".searchResult").innerHTML = searchRes;
-    }
-  });
+    );
+  if (
+    data.filter((el) =>
+      el.title
+        .toLowerCase()
+        .includes(document.querySelector(".navInphidden").value.toLowerCase())
+    ).length == 0
+  ) {
+    document.querySelector(".searchResult").textContent = "Net takoy tovar";
+  } else {
+    document.querySelector(".searchResult").innerHTML = searchRes;
+  }
+});
+document.querySelector('.cat-btn-img').addEventListener("click", () => {
+  document.querySelector('.nav__menu-catalog').classList.toggle('open')
+})
