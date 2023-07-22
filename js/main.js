@@ -5,7 +5,9 @@ let mashhurOut = ``;
 let cart = [];
 let profileImg;
 var likedProds = JSON.parse(localStorage.getItem('liked')) || []
-localStorage.setItem('liked', JSON.stringify([]))
+if(localStorage.getItem('liked') === null){
+  localStorage.setItem('liked', JSON.stringify([]))
+}
 
 if (!localStorage.getItem("cartItems") == null) {
   document.querySelector(".cartCount").innerHTML = JSON.parse(
